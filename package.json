@@ -1,0 +1,17 @@
+{
+  "name": "buckletest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bs-platform": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/bs-platform/bin/bsc.exe -c -bs-main main_entry.ml",
+    "start": "npm run build && node main_entry.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
