@@ -5,22 +5,27 @@ function _createElement (clazz, props, children) {
   return _React.createElement(clazz, props, ...children)
 }
 
-function _createClass (fn) {
+function _createClass (fn, initialState) {
   return _React.createClass({
+    getInitialState: function () {
+      return initialState
+    },
+
     render: function () {
-      return fn(this.props)
+      return fn(this.props, this.state, state => this.setState(state))
     }
   })
 }
 |}]
 
 type element
-type 'a component
-external createComponent_ : ('a -> element) -> 'a component = "_createClass" [@@bs.val]
+type ('props, 'state) component
+external createComponent_ : ('props -> 'state -> ('state -> unit) -> element) -> 'state -> ('props, 'state) component = "_createClass" [@@bs.val]
 
-external createComponentElement_ : 'a component -> 'a -> element array -> element = "_createElement" [@@bs.val]
-external createBasicElement_ : string -> 'a -> element array -> element = "_createElement" [@@bs.val]
+external createComponentElement_ : ('props, 'state) component -> 'props -> element array -> element = "_createElement" [@@bs.val]
+external createBasicElement_ : string -> 'props -> element array -> element = "_createElement" [@@bs.val]
 
+(* Needed so that we include strings and elements as children *)
 external text : string -> element = "%identity"
 
 (*

@@ -1,11 +1,17 @@
-type props =  < name : string > Js.t
-let action event =
-  Js.log "heyoooo";
-  Dom.preventDefault event
+type props = < name : string > Js.t
 
-let render (props : props) = React.div [%bs.obj {className = "custom-render"}] [|
-  React.text props##name
-; React.div () [| React.text "hi" |]
-; React.a [%bs.obj {onClick = action ; href = ""}] [| React.text "Click me!" |]
-|]
-let c = React.createComponent render
+type state = < clickCount : int > Js.t
+
+let action setState state event =
+  Dom.preventDefault event;
+  setState [%bs.obj { clickCount = state##clickCount + 1 }]
+
+let render (props : props) (state : state) (setState : state -> unit) =
+  let count = "click count: " ^ string_of_int state##clickCount in
+  React.div [%bs.obj {className = "custom-render"}] [|
+    React.text props##name
+  ; React.div () [| React.text count |]
+  ; React.a [%bs.obj {onClick = action setState state ; href = ""}] [| React.text "Click me!" |]
+  |]
+
+let t = React.createComponent render [%bs.obj { clickCount = 0 }]
