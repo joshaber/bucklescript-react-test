@@ -44,6 +44,7 @@ let a props children = createBasicElement_ "a" props children
 let button props children = createBasicElement_ "button" props children
 let input props children = createBasicElement_ "input" props children
 let form props children = createBasicElement_ "form" props children
+let label props children = createBasicElement_ "label" props children
 
 let component component props children = createComponentElement_ component props children
 
