@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bs-platform": "^1.0.3"
+    "electron": "^1.4.5",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   },
   "devDependencies": {
-    "bs-platform": "^1.2.1"
+    "bs-platform": "^1.3.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./run.sh"
+    "start": "./run.sh",
+    "electron": "electron ."
   },
   "author": "",
   "license": "ISC"

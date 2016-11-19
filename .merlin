@@ -1,3 +1,8 @@
+S node_modules/bs-platform/lib/ocaml
+B node_modules/bs-platform/lib/ocaml
+
+FLG -ppx node_modules/bs-platform/bin/bsppx.exe
+
 # Setup guide:
 # https://github.com/the-lambda-church/merlin/wiki/project-configuration
 
