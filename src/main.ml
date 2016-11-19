@@ -1,7 +1,7 @@
 let () =
   let root = React.div [%bs.obj {className = "outer"}] [|
-    React.component MyComponent.t [%bs.obj {name = "jane"}] [||]
-  ; React.component MyComponent.t [%bs.obj {name = "john"}] [||]
+    React.component ClickComponent.t [%bs.obj {name = "jane"}] [||]
+  ; React.component ClickComponent.t [%bs.obj {name = "john"}] [||]
   ; React.div [%bs.obj {className = "test"}] [||]
   |] in
   let host = Dom.getElementById Dom.document "host" in

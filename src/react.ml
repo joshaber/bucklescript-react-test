@@ -12,7 +12,7 @@ function _createClass (fn, initialState) {
     },
 
     render: function () {
-      return fn(this.props, this.state, this.setState.bind(this))
+      return fn(this.props, this.state, state => this.setState(state))
     }
   })
 }
@@ -43,6 +43,7 @@ let span props children = createBasicElement_ "span" props children
 let a props children = createBasicElement_ "a" props children
 let button props children = createBasicElement_ "button" props children
 let input props children = createBasicElement_ "input" props children
+let form props children = createBasicElement_ "form" props children
 
 let component component props children = createComponentElement_ component props children
 
