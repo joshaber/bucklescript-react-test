@@ -20,7 +20,10 @@ function _createClass (fn, initialState) {
 
 type element
 type ('props, 'state) component
-external createComponent_ : ('props -> 'state -> ('state -> unit) -> element) -> 'state -> ('props, 'state) component = "_createClass" [@@bs.val]
+
+type 'state setStateFn = 'state -> unit
+type ('props, 'state) renderFn = 'props -> 'state -> 'state setStateFn -> element
+external createComponent_ : ('props, 'state) renderFn -> 'state -> ('props, 'state) component = "_createClass" [@@bs.val]
 
 external createComponentElement_ : ('props, 'state) component -> 'props -> element array -> element = "_createElement" [@@bs.val]
 external createBasicElement_ : string -> 'props -> element array -> element = "_createElement" [@@bs.val]
