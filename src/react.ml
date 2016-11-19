@@ -12,7 +12,7 @@ function _createClass (fn, initialState) {
     },
 
     render: function () {
-      return fn(this.props, this.state, state => this.setState(state))
+      return fn(this.props, this.state, this.setState.bind(this))
     }
   })
 }
