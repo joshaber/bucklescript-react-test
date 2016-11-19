@@ -36,9 +36,3 @@ do
     -bs-package-output commonjs:_build/self -I _build/self \
     -o $destination -c -impl $source
 done
-
-# no linking! BuckleScript maps 1 Reason/OCaml file to 1 JS file. Feel free to
-# use your current JS module bundler (e.g. Browserify, Webpack)!
-
-# Are you ready to run your JS output?
-node ./_build/self/main.js
