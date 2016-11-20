@@ -1,14 +1,17 @@
 type props = ()
-type state = < name : string > Js.t
+type state = <
+  name : string
+; submitCount : int
+> Js.t
 
 let onSubmit state event =
   Js.log ("eyyyy: " ^ state##name);
   event##preventDefault ()
 
-let onChange setState event =
+let onChange state setState event =
   event##preventDefault ();
   let v = event##currentTarget##value in
-  setState [%bs.obj {name = v}]
+  setState [%bs.obj {name = v ; submitCount = state##submitCount}]
 
 let render (props : props) (state : state) (setState : state -> unit) =
   let greeting = match String.length state##name with
@@ -18,7 +21,7 @@ let render (props : props) (state : state) (setState : state -> unit) =
   React.form [%bs.obj {onSubmit = onSubmit state}] [|
     React.label [%bs.obj {className = "thing"}] [|
       React.text "Name"
-    ; React.input [%bs.obj {onChange = onChange setState}] [||]
+    ; React.input [%bs.obj {onChange = onChange state setState}] [||]
     ; React.button [%bs.obj {type_ = "submit"}] [|
         React.text "Submit"
       |]
@@ -26,4 +29,4 @@ let render (props : props) (state : state) (setState : state -> unit) =
     |]
   |]
 
-let t = React.createComponent render [%bs.obj {name = ""}]
+let t = React.createComponent render [%bs.obj {name = "" ; submitCount = 0}]

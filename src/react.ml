@@ -48,6 +48,9 @@ let label props children = createBasicElement_ "label" props children
 
 let component component props children = createComponentElement_ component props children
 
+(* An empty JS object. [%bs.obj {}] makes BS angry. *)
+external empty : 't = "" [@@bs.obj]
+
 (* -- *)
 
 external render : element -> Dom.element -> unit = "" [@@bs.module "react-dom"]
