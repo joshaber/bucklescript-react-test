@@ -19,7 +19,7 @@ let render (props : props) (state : state) (setState : state -> unit) =
     | _ -> "Hello " ^ state##name ^ "!"
   in
   React.form [%bs.obj {onSubmit = onSubmit state}] [|
-    React.label [%bs.obj {className = "thing"}] [|
+    React.label () [|
       React.text "Name"
     ; React.input [%bs.obj {onChange = onChange state setState}] [||]
     ; React.button [%bs.obj {type_ = "submit"}] [|
