@@ -13,9 +13,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js",
+    "build": "bsb",
     "start": "./run.sh",
-    "electron": "electron ."
+    "electron": "electron .",
+    "watch": "watchman -j < watch.json"
   },
   "author": "",
   "license": "ISC"

@@ -1,0 +1,9 @@
+[
+  "trigger", ".", {
+    "name": "build",
+    "expression": ["anyof",
+       ["match", "src/*.ml", "wholename"]
+     ],
+    "command": ["npm", "run", "build", "-loglevel", "silent"]
+  }
+]

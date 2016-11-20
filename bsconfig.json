@@ -1,0 +1,19 @@
+{
+  "name": "bs-string",
+  "version": "0.1.2",
+  "ocaml-config": {
+    "sources": [
+      {
+        "dir": "src",
+        "public" : "all",
+        "files": [
+          "clickComponent.ml",
+          "dom.ml",
+          "formTest.ml",
+          "main.ml",
+          "react.ml"
+        ]
+      }
+    ]
+  }
+}
