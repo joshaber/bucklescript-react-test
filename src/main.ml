@@ -1,6 +1,6 @@
 let () =
   let root = React.div () [|
-    React.component ClickComponent.t [%bs.obj {name = "jane"}] [||]
+    React.component ClickComponent.t {ClickComponent.name = "jane"} [||]
   ; React.component FormTest.t () [||]
   |] in
   let host = Dom.getElementById Dom.document "host" in

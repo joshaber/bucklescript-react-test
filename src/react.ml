@@ -8,11 +8,11 @@ function _createElement (clazz, props, children) {
 function _createClass (fn, initialState) {
   return _React.createClass({
     getInitialState: function () {
-      return initialState
+      return { state: initialState }
     },
 
     render: function () {
-      return fn(this.props, this.state, state => this.setState(state))
+      return fn(this.props, this.state.state, state => this.setState({ state }))
     }
   })
 }
