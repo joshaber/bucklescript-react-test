@@ -1,3 +1,5 @@
+# BuckleScript's artifacts are installed upon package installation; they resides
+# here. Merlin's jump-to-location can transport you to these locations!
 S node_modules/bs-platform/lib/ocaml
 B node_modules/bs-platform/lib/ocaml
 
@@ -7,11 +9,7 @@ FLG -ppx node_modules/bs-platform/bin/bsppx.exe
 # https://github.com/the-lambda-church/merlin/wiki/project-configuration
 
 # B for built artifacts.
-B lib/ocaml
-
-# BuckleScript's artifacts are installed upon package installation; they resides
-# here. Merlin's jump-to-location can transport you to these locations!
-B node_modules/bs-platform/lib/ocaml
+B lib/bs/src
 
 # S for source
 S src
