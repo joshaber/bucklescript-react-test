@@ -8,7 +8,7 @@ let onSubmit (state : state) (event : Dom.Event.t) =
   Js.log ("eyyyy: " ^ state.name);
   Dom.Event.preventDefault event
 
-let onChange (state : state) setState (event : Dom.Event.t) =
+let onChange (state : state) (setState : state -> unit) (event : Dom.Event.t) =
   Dom.Event.preventDefault event;
   let target = Dom.Event.currentTarget event in
   let v = target##value in
