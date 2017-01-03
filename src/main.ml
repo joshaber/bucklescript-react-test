@@ -1,5 +1,5 @@
 let () =
-  let root = React.div () [|
+  let root = React.div (React.props ()) [|
     React.component ClickComponent.t {ClickComponent.name = "jane"} [||]
   ; React.component FormTest.t () [||]
   |] in

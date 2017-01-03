@@ -26,7 +26,7 @@ type ('props, 'state) renderFn = 'props -> 'state -> 'state setStateFn -> elemen
 external createComponent_ : ('props, 'state) renderFn -> 'state -> ('props, 'state) component = "_createClass" [@@bs.val]
 
 external createComponentElement_ : ('props, 'state) component -> 'props -> element array -> element = "_createElement" [@@bs.val]
-external createBasicElement_ : string -> 'props -> element array -> element = "_createElement" [@@bs.val]
+external createBasicElement_ : string -> 'a Js.t -> element array -> element = "_createElement" [@@bs.val]
 
 (* Needed so that we include strings and elements as children *)
 external text : string -> element = "%identity"
