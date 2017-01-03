@@ -11,7 +11,7 @@ let render (props : props) (state : state) (setState : state -> unit) =
   React.div () [|
     React.text props.name
   ; React.div () [| React.text count |]
-  ; React.a [%bs.obj {onClick = action setState state ; href = ""}] [| React.text "Click me!" |]
+  ; React.a (React.props ~onClick:(action setState state) ~href:"") [| React.text "Click me!" |]
   |]
 
 let t = React.createComponent render { clickCount = 0 }

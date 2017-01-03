@@ -19,11 +19,11 @@ let render (props : props) (state : state) (setState : state -> unit) =
     | 0 -> ""
     | _ -> "Hello " ^ state.name ^ "!"
   in
-  React.form [%bs.obj {onSubmit = onSubmit state}] [|
+  React.form (React.props ~onSubmit:(onSubmit state)) [|
     React.label () [|
       React.text "Name"
-    ; React.input [%bs.obj {onChange = onChange state setState}] [||]
-    ; React.button [%bs.obj {type_ = "submit"}] [|
+    ; React.input (React.props ~onChange:(onChange state setState)) [||]
+    ; React.button (React.props ~type_:"submit") [|
         React.text "Submit"
       |]
     ; React.text greeting

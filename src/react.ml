@@ -38,6 +38,16 @@ external text : string -> element = "%identity"
 let createComponent = createComponent_
 let element = createBasicElement_
 
+external props :
+  ?onClick  : (Dom.Event.t -> unit) ->
+  ?onChange : (Dom.Event.t -> unit) ->
+  ?onSubmit : (Dom.Event.t -> unit) ->
+  ?href     : string ->
+  ?type_    : string ->
+  ?value    : string ->
+  unit -> _ =
+  "" [@@bs.obj]
+
 let div props children = createBasicElement_ "div" props children
 let span props children = createBasicElement_ "span" props children
 let a props children = createBasicElement_ "a" props children
