@@ -61,4 +61,4 @@ let component component props children = createComponentElement_ component props
 
 (* -- *)
 
-external render : element -> Dom.element -> unit = "" [@@bs.module "react-dom"]
+external render : element -> Dom.Element.t -> unit = "" [@@bs.module "react-dom"]

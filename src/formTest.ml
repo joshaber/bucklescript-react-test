@@ -10,8 +10,7 @@ let onSubmit (state : state) (event : Dom.Event.t) =
 
 let onChange (state : state) (setState : state -> unit) (event : Dom.Event.t) =
   Dom.Event.preventDefault event;
-  let target = Dom.Event.currentTarget event in
-  let v = target##value in
+  let v = Dom.Event.getCurrentTarget event |> Dom.Element.getValue in
   setState { state with name = v }
 
 let render (props : props) (state : state) (setState : state -> unit) =

@@ -1,14 +1,17 @@
 type document
 external document : document = "" [@@bs.val]
 
-type element = <
-  value : string
-> Js.t
-external getElementById : document -> string -> element Js.null_undefined = "" [@@bs.send]
+module Element = struct
+  type t
+
+  external getValue : t -> string = "value" [@@bs.get]
+end
+
+external getElementById : document -> string -> Element.t Js.null_undefined = "" [@@bs.send]
 
 module Event = struct
   type t
   external preventDefault : t -> unit = "" [@@bs.send]
 
-  external currentTarget : t -> element = "" [@@bs.get]
+  external getCurrentTarget : t -> Element.t = "currentTarget" [@@bs.get]
 end
