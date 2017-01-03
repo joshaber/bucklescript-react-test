@@ -6,7 +6,9 @@ type element = <
 > Js.t
 external getElementById : document -> string -> element Js.null_undefined = "" [@@bs.send]
 
-type event = <
-  preventDefault : unit -> unit
-; currentTarget : element
-> Js.t
+module Event = struct
+  type t
+  external preventDefault : t -> unit = "" [@@bs.send]
+
+  external currentTarget : t -> element = "" [@@bs.get]
+end

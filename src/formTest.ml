@@ -4,13 +4,14 @@ type state = {
 ; submitCount : int
 }
 
-let onSubmit state event =
+let onSubmit (state : state) (event : Dom.Event.t) =
   Js.log ("eyyyy: " ^ state.name);
-  event##preventDefault ()
+  Dom.Event.preventDefault event
 
-let onChange state setState event =
-  event##preventDefault ();
-  let v = event##currentTarget##value in
+let onChange (state : state) setState (event : Dom.Event.t) =
+  Dom.Event.preventDefault event;
+  let target = Dom.Event.currentTarget event in
+  let v = target##value in
   setState { state with name = v }
 
 let render (props : props) (state : state) (setState : state -> unit) =

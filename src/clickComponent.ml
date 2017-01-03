@@ -2,8 +2,8 @@ type props = { name : string }
 
 type state = { clickCount : int }
 
-let action setState state event =
-  event##preventDefault ();
+let action setState (state : state) (event : Dom.Event.t) =
+  Dom.Event.preventDefault event;
   setState { clickCount = state.clickCount + 1 }
 
 let render (props : props) (state : state) (setState : state -> unit) =
